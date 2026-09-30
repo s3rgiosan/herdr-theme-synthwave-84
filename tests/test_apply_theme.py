@@ -126,6 +126,18 @@ class ApplyRestoreTests(unittest.TestCase):
         self.assertEqual(self.config.read_text(), original)
         self.assertFalse((self.tmp / "state" / apply_theme.BACKUP_NAME).exists())
 
+    def test_managed_theme_is_not_backed_up(self):
+        self.config.write_text(KEYS)
+        apply_theme.apply(self.config)
+        (self.tmp / "state" / apply_theme.BACKUP_NAME).unlink()
+        apply_theme.apply(self.config)
+        self.assertFalse((self.tmp / "state" / apply_theme.BACKUP_NAME).exists())
+
+    def test_block_carries_managed_marker_and_base(self):
+        block = apply_theme.theme_block()
+        self.assertIn(apply_theme.MANAGED_BY, block)
+        self.assertIn('name = "dracula"', block)
+
     def test_restore_without_backup_fails(self):
         self.config.write_text(KEYS)
         with self.assertRaises(SystemExit):

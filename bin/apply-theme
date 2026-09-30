@@ -12,6 +12,7 @@ from pathlib import Path
 PLUGIN_ROOT = Path(os.environ.get("HERDR_PLUGIN_ROOT", Path(__file__).resolve().parent.parent))
 THEME_FILE = PLUGIN_ROOT / "themes" / "synthwave-84.toml"
 BACKUP_NAME = "theme-backup.toml"
+MANAGED_BY = "# Managed by Herdr plugin: herdr-theme-synthwave-84"
 # Present in the backup when the config had no [theme] tables before the first apply.
 NO_THEME_MARKER = "# herdr-theme-synthwave-84: no previous theme\n"
 
@@ -128,9 +129,11 @@ def commit(path, old, new):
 def apply(path):
     old = path.read_text() if path.exists() else ""
     backup = state_dir() / BACKUP_NAME
-    first_apply = not backup.exists()
+    _, theme, insert_at = split_theme_tables(old)
+    # A theme carrying the marker is this plugin's own output; backing it up
+    # would make restore reinstate Synthwave '84.
+    first_apply = not backup.exists() and MANAGED_BY not in theme
     if first_apply:
-        _, theme, insert_at = split_theme_tables(old)
         backup.write_text(NO_THEME_MARKER if insert_at is None else theme)
     try:
         commit(path, old, replace_theme_tables(old, theme_block()))

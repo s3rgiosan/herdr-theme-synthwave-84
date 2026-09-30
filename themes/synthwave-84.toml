@@ -1,11 +1,13 @@
 # Synthwave '84 for Herdr.
-# Every customizable token is set, so the base theme never shows through.
+# Dracula is the base; every customizable token is overridden.
 [theme]
+# Managed by Herdr plugin: herdr-theme-synthwave-84
+name = "dracula"
 auto_switch = false
 
 [theme.custom]
 accent = "#ff7edb"
-panel_bg = "#262335"
+panel_bg = "reset"
 sidebar_bg = "#241b2f"
 active_row_bg = "#34294f"
 selection_bg = "#463465"

@@ -18,3 +18,9 @@ title = "Restore previous theme"
 description = "Put back the [theme] block backed up before the first Synthwave '84 apply, then reload Herdr."
 contexts = ["global", "workspace"]
 command = ["python3", "bin/apply-theme", "--restore"]
+
+[[keys.command]]
+key = "prefix+shift+s"
+type = "plugin_action"
+command = "herdr-theme-synthwave-84.apply"
+description = "apply Synthwave '84 theme"
