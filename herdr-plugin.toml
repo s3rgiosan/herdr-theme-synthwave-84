@@ -1,0 +1,20 @@
+id = "herdr-theme-synthwave-84"
+name = "Synthwave '84 Theme"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Apply Synthwave '84 neon colors to Herdr's UI."
+platforms = ["macos", "linux"]
+
+[[actions]]
+id = "apply"
+title = "Apply Synthwave '84 theme"
+description = "Write the Synthwave '84 [theme] block into config.toml, then reload Herdr."
+contexts = ["global", "workspace"]
+command = ["python3", "bin/apply-theme", "--apply"]
+
+[[actions]]
+id = "restore"
+title = "Restore previous theme"
+description = "Put back the [theme] block backed up before the first Synthwave '84 apply, then reload Herdr."
+contexts = ["global", "workspace"]
+command = ["python3", "bin/apply-theme", "--restore"]

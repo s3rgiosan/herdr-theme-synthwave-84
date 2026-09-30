@@ -1,0 +1,25 @@
+# Synthwave '84 for Herdr.
+# Every customizable token is set, so the base theme never shows through.
+[theme]
+auto_switch = false
+
+[theme.custom]
+accent = "#ff7edb"
+panel_bg = "#262335"
+sidebar_bg = "#241b2f"
+active_row_bg = "#34294f"
+selection_bg = "#463465"
+surface0 = "#2a2139"
+surface1 = "#495495"
+surface_dim = "#171520"
+overlay0 = "#848bbd"
+overlay1 = "#a4a8d3"
+text = "#ffffff"
+subtext0 = "#b6b1b1"
+mauve = "#c792ea"
+green = "#72f1b8"
+yellow = "#fede5d"
+red = "#fe4450"
+blue = "#36f9f6"
+teal = "#03edf9"
+peach = "#f97e72"
