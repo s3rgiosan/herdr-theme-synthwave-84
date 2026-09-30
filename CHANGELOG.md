@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.0] - 2026-09-30
 
 ### Added
 
@@ -14,3 +14,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `restore` action: puts back the `[theme]` tables saved before the first apply.
 - `prefix+shift+s` keybinding for the `apply` action.
 - Dracula base theme, a managed-by marker that keeps re-applies out of the backup, and a transparent panel background.
+
+[0.1.0]: https://github.com/s3rgiosan/herdr-theme-synthwave-84/releases/tag/0.1.0
